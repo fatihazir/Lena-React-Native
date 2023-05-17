@@ -10,42 +10,33 @@ import {
 import { fonts } from './src/utilities/fonts';
 import AntdesingIcon from 'react-native-vector-icons/AntDesign'
 import EntypoIcon from 'react-native-vector-icons/Entypo'
+import SvgLena from './src/assets/svgs/SvgLena';
+import { SharedContextProvider } from './src/store/context/SharedContext';
+import MainStackNavigator from './src/navigation/MainStackNavigator';
+import Overlay from './src/components/overlay';
+import GlobalLoading from './src/components/globalLoading';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
+
   return (
     <SafeAreaView>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
       />
-      <Text style={styles.text}>Selamlar</Text>
-      <Text style={{ fontSize: 32, color: 'black' }}>Selamlar</Text>
-      <AntdesingIcon name='stepforward' size={30} color={'red'} />
+      <SharedContextProvider>
+        <MainStackNavigator />
+        <Overlay />
+        <GlobalLoading />
+      </SharedContextProvider>
+
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  text: {
-    fontSize: 32,
-    fontFamily: fonts.PoppinsBold,
-    color: 'black'
+  container: {
+    flex: 1,
   }
 });
 
