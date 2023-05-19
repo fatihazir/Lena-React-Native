@@ -24,8 +24,7 @@ const BlogScreen = (props: BlogDetailParamsModel) => {
     return (
         <View style={styles.container}>
             <ScrollView
-                style={{ flex: 1, backgroundColor: 'pink' }}
-            >
+                style={styles.container}>
                 <Image resizeMode='stretch' style={styles.banner} source={{ uri: currentBlog?.banner }} />
                 <View style={styles.insideContainer}>
                     <Text style={styles.title}>{currentBlog?.title}</Text>
@@ -35,7 +34,6 @@ const BlogScreen = (props: BlogDetailParamsModel) => {
                         value={currentBlog?.content}
                     />
                 </View>
-
             </ScrollView>
         </View>
     )
