@@ -5,8 +5,8 @@ import { SvgUri } from "react-native-svg";
 function SvgComponent(props) {
     return (
         <SvgUri
-            width="15%"
-            height="15%"
+            width="50%"
+            height="50%"
             uri="https://www.lenasoftware.com/Assets/img/logo-single-black.svg"
         />
     );

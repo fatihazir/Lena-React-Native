@@ -4,13 +4,8 @@ import {
   SafeAreaView,
   StatusBar,
   StyleSheet,
-  Text,
   useColorScheme
 } from 'react-native';
-import { fonts } from './src/utilities/fonts';
-import AntdesingIcon from 'react-native-vector-icons/AntDesign'
-import EntypoIcon from 'react-native-vector-icons/Entypo'
-import SvgLena from './src/assets/svgs/SvgLena';
 import { SharedContextProvider } from './src/store/context/SharedContext';
 import MainStackNavigator from './src/navigation/MainStackNavigator';
 import Overlay from './src/components/overlay';
@@ -20,7 +15,7 @@ const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
       />

@@ -6,6 +6,8 @@ export interface SharedContextModel {
     showGlobalLoading: boolean;
     setShowGlobalLoading: (arg: boolean) => Function;
     blogs: Array<BlogModel>;
-    setBlogs: (arg: Array<BlogModel>) => Function
+    setBlogs: (arg: Array<BlogModel>) => Function;
+    showGoBackButton: boolean;
+    setShowGoBackButton: (arg: boolean) => Function
 
 }

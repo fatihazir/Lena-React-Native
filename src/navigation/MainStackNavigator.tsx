@@ -4,6 +4,7 @@ import { routes } from '../utilities/routes';
 import HomeScreen from '../screens/HomeScreen';
 import { Platform } from 'react-native';
 import BlogScreen from '../screens/BlogScreen';
+import MainHeader from '../components/mainHeader';
 
 const Stack = createStackNavigator();
 
@@ -15,14 +16,13 @@ function MainStackNavigator(): JSX.Element {
             <Stack.Navigator
                 initialRouteName={routes.HomeScreen}
                 screenOptions={{
-                    //header: (() => <Header />)
+                    header: (() => <MainHeader />)
                 }}>
                 <Stack.Screen name={routes.HomeScreen} component={HomeScreen} />
                 <Stack.Screen
                     name={routes.BlogScreen}
                     component={BlogScreen}
                     options={{
-                        //header: (() => <FilterHeader />),
                         presentation: 'modal',
                         gestureEnabled: true,
                         ...(isAndroid && TransitionPresets.ModalPresentationIOS)
