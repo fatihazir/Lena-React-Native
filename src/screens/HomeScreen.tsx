@@ -108,7 +108,7 @@ const HomeScreen = () => {
                 show={showErrorModal}
                 onSuccess={() => { currentContext.setShowOverlay(false), setShowErrorModal(false) }}
             />
-            <Text style={styles.blogsFoundText}>{totalCount} / {blogs?.length} blogs </Text>
+            <Text style={styles.blogsFoundText}>{blogs?.length} / {totalCount} blogs </Text>
             <FlatList
                 showsVerticalScrollIndicator={false}
                 data={blogs}
