@@ -46,7 +46,10 @@ const HomeScreen = () => {
                     setPage(1)
                     setBlogs(res.result)
                 } else {
+                    //@ts-ignore
                     setBlogs((prevBlogs) => prevBlogs.concat(res.result))
+
+                    // bu şekilde de implemente edilebilir. Can be implemented as shown as well
                     // let prevBlogs = blogs
                     // let newArr = prevBlogs?.concat(res.result)
                     // setBlogs(newArr)
