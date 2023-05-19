@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react'
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image, RefreshControl } from 'react-native'
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image, RefreshControl, Platform } from 'react-native'
 import { UseNavigationModel } from '../models/typescript/navigation';
 import { useNavigation } from '@react-navigation/native';
 import { SharedContextModel } from '../models/typescript/sharedContext';
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
         paddingBottom: 12,
     },
     banner: {
-        height: height_screen * .25,
+        height: Platform.OS == 'ios' ? height_screen * .25 : height_screen * .30,
         width: '100%',
         alignSelf: 'center',
         borderTopLeftRadius: 20,
