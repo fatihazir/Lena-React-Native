@@ -5,7 +5,6 @@ export const SharedContextProvider = ({ children }: any) => {
     const [showOverlay, setShowOverlay] = useState<boolean>(false)
     const [showGlobalLoading, setShowGlobalLoading] = useState(false)
     const [blogs, setBlogs] = useState<Array<BlogModel>>()
-    const [showGoBackButton, setShowGoBackButton] = useState<boolean>(false)
 
     return (
         <SharedContext.Provider
@@ -15,9 +14,7 @@ export const SharedContextProvider = ({ children }: any) => {
                 showGlobalLoading,
                 setShowGlobalLoading,
                 blogs,
-                setBlogs,
-                showGoBackButton,
-                setShowGoBackButton
+                setBlogs
             }}>
             {children}
         </SharedContext.Provider>

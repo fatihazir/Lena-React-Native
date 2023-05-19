@@ -1,25 +1,24 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {
     StyleSheet,
     View,
-    Image,
     TouchableOpacity,
     Text
 } from 'react-native';
 import { height_screen, width_screen } from '../../utilities/dimensions';
 import { useNavigation } from '@react-navigation/native';
 import { UseNavigationModel } from '../../models/typescript/navigation';
-import { SharedContextModel } from '../../models/typescript/sharedContext/index';
-import { SharedContext } from '../../store/context/SharedContext';
 import AntdesingIcon from 'react-native-vector-icons/AntDesign'
 import SvgLena from '../../assets/svgs/SvgLena';
 import { fonts } from '../../utilities/fonts/index';
 
-function MainHeader(): JSX.Element {
+interface MainHeaderParamsModel {
+    showGoBackButton?: boolean
+}
+function MainHeader(props: MainHeaderParamsModel): JSX.Element {
     const navigation: UseNavigationModel = useNavigation();
-    const currentContext: SharedContextModel = useContext(SharedContext)
 
-    const { showGoBackButton } = currentContext
+    const { showGoBackButton } = props
 
     function OnGoBackPressed() {
         navigation.goBack()

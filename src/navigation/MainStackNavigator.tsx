@@ -23,6 +23,7 @@ function MainStackNavigator(): JSX.Element {
                     name={routes.BlogScreen}
                     component={BlogScreen}
                     options={{
+                        header: (() => <MainHeader showGoBackButton={true} />),
                         presentation: 'modal',
                         gestureEnabled: true,
                         ...(isAndroid && TransitionPresets.ModalPresentationIOS)
