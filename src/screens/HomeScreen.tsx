@@ -94,16 +94,10 @@ const HomeScreen = () => {
 
     const renderItem = (eachItem: RenderItemModel) => (
         <TouchableOpacity onPress={() => OnBlogPressed(eachItem.item)} key={eachItem.item.postId} style={styles.eachBlogContainer}>
-            <>
-                <Image resizeMode='stretch' style={styles.thumbnail} source={{ uri: eachItem.item.banner }} />
-                <Text numberOfLines={1} style={styles.title}>{eachItem.item.title}</Text>
-                <Text style={styles.readingTime}>Total reading time: {eachItem.item.totalReadingTime} min</Text>
-            </>
-
-            {/* <View style={styles.platformAndReleaseSection}>
-                <Text style={styles.platform}>{eachItem.item.platform}</Text>
-                <Text style={styles.date}>Release date: {eachItem.item.release_date}</Text>
-            </View> */}
+            <Image resizeMode='stretch' style={styles.banner} source={{ uri: eachItem.item.banner }} />
+            <Text numberOfLines={1} style={styles.title}>{eachItem.item.title}</Text>
+            <Text style={styles.readingTime}>Total reading time: {eachItem.item.totalReadingTime} min</Text>
+            <Text style={styles.summary}>{eachItem.item.summary}</Text>
         </TouchableOpacity>
     );
 
@@ -142,7 +136,6 @@ const styles = StyleSheet.create({
     eachBlogContainer: {
         width: '100%',
         backgroundColor: 'white',
-        height: height_screen * .3,
         marginBottom: 12,
         borderBottomWidth: 0.5,
         borderLeftWidth: 0.5,
@@ -153,8 +146,8 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.2,
         paddingBottom: 12,
     },
-    thumbnail: {
-        height: '60%',
+    banner: {
+        height: height_screen * .25,
         width: '100%',
         alignSelf: 'center',
         borderTopLeftRadius: 20,
@@ -168,9 +161,10 @@ const styles = StyleSheet.create({
         paddingHorizontal: 8
     },
     readingTime: {
-        fontSize: 16,
+        fontSize: 12,
         color: 'black',
         paddingHorizontal: 8,
+        marginBottom: 8,
         alignSelf: 'flex-end'
     },
     blogsFoundText: {
@@ -180,6 +174,12 @@ const styles = StyleSheet.create({
         textAlign: 'right',
         paddingBottom: 8
     },
+    summary: {
+        fontFamily: fonts.PoppinsRegular,
+        fontSize: 14,
+        paddingHorizontal: 8,
+        color: 'black'
+    }
 });
 
 export default HomeScreen
