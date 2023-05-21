@@ -92,14 +92,14 @@ const HomeScreen = () => {
         index: number
     }
 
-    const renderItem = (eachItem: RenderItemModel) => (
+    const renderItem = useCallback((eachItem: RenderItemModel) => (
         <TouchableOpacity onPress={() => OnBlogPressed(eachItem.item)} key={eachItem.item.postId} style={styles.eachBlogContainer}>
             <Image resizeMode='stretch' style={styles.banner} source={{ uri: eachItem.item.banner }} />
             <Text numberOfLines={1} style={styles.title}>{eachItem.item.title}</Text>
             <Text style={styles.readingTime}>Total reading time: {eachItem.item.totalReadingTime} min</Text>
             <Text style={styles.summary}>{eachItem.item.summary}</Text>
         </TouchableOpacity>
-    );
+    ), [])
 
     return (
         <View style={styles.container}>
