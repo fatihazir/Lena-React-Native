@@ -22,30 +22,29 @@ const BlogScreen = (props: BlogDetailParamsModel) => {
     const [currentBlog, setCurrentBlog] = useState(blogs.find((item) => item.postId === postId))
 
     return (
-        <View style={styles.container}>
-            <ScrollView
-                style={styles.container}>
-                <Image resizeMode='stretch' style={styles.banner} source={{ uri: currentBlog?.banner }} />
-                <View style={styles.insideContainer}>
-                    <Text style={styles.title}>{currentBlog?.title}</Text>
-                    <Text style={styles.readingTime}>Total reading time: {currentBlog?.totalReadingTime} min</Text>
-                    <HTMLView
-                        //@ts-ignore
-                        value={currentBlog?.content}
-                    />
-                </View>
-            </ScrollView>
-        </View>
+        <ScrollView
+            style={styles.container}
+            showsVerticalScrollIndicator={false}>
+            <Image resizeMode='stretch' style={styles.banner} source={{ uri: currentBlog?.banner }} />
+            <View style={styles.insideContainer}>
+                <Text style={styles.title}>{currentBlog?.title}</Text>
+                <Text style={styles.readingTime}>Total reading time: {currentBlog?.totalReadingTime} min</Text>
+                <HTMLView
+                    value={currentBlog!.content}
+                />
+            </View>
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
-        flex: 1
+        flex: 1,
     },
     insideContainer: {
-        padding: 8
+        padding: 8,
+        flex: 1
     },
     banner: {
         height: Platform.OS == 'ios' ? height_screen * .30 : height_screen * .35,
